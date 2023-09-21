@@ -16,7 +16,7 @@ ingress:
     cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
     acme.cert-manager.io/http01-edit-in-place: "true"
   hosts:
-    - host: artemis-qa.mg-aws.com
+    - host: artemis-qa.aselnur.com
       paths:
         - path: /
           pathType: ImplementationSpecific
