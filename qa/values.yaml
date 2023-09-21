@@ -1,28 +1,26 @@
 replicaCount: 3
-
-
-image: terraform-project-aselnur/artemis/artemis
- pullPolicy: IfNotPresent
-  repository: us-central1-docker.pkg.dev/Overrides the image tag whose default is the chart appVersion.
-  tag: 9.0.0
+image:
+  repository: "us-central1-docker.pkg.dev/terraform-project-aselnur/artemis/artemis"
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "9.0.0"
 service:
   type: ClusterIP
-  port: 80
-
+  port: 5000
 ingress:
   enabled: true
   className: "nginx"
-  annotations:    
+  annotations:
     ingress.kubernetes.io/ssl-redirect: "false"
     # kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: letsencrypt-prod-dns01
     acme.cert-manager.io/http01-edit-in-place: "true"
   hosts:
-    - host: artemis-qa.aselnur.com 
+    - host: artemis-qa.mg-aws.com
       paths:
         - path: /
           pathType: ImplementationSpecific
-  tls: 
+  tls:
     - secretName: artemis-tls
       hosts:
-        - artemis-qa.aselnur.com 
+        - artemis-qa.aselnur.com
