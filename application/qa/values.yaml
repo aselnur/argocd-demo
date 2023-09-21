@@ -1,11 +1,10 @@
 replicaCount: 3
 
 
-image:
-  repository: us-central1-docker.pkg.dev/terraform-project-aselnur/artemis/artemis
-  pullPolicy: IfNotPresent
-  # Overrides the image tag whose default is the chart appVersion.
-  tag: 9.0.0
+image: terraform-project-aselnur/artemis/artemis
+ pullPolicy: IfNotPresent
+  repository: us-central1-docker.pkg.dev/Overrides the image tag whose default is the chart appVersion.
+  tag: 10.0.0
 service:
   type: ClusterIP
   port: 80
@@ -26,4 +25,4 @@ ingress:
   tls: 
     - secretName: artemis-tls
       hosts:
-        - artemis-qa.aselnur.com 
+        - artemis-dev.aselnur.com 
